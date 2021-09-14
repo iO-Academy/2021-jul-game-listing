@@ -1,13 +1,13 @@
 # ************************************************************
 # Sequel Pro SQL dump
-# Version 5446
+# Version 4541
 #
-# https://www.sequelpro.com/
+# http://www.sequelpro.com/
 # https://github.com/sequelpro/sequelpro
 #
-# Host: 127.0.0.1 (MySQL 5.5.5-10.6.3-MariaDB-1:10.6.3+maria~focal)
+# Host: 127.0.0.1 (MySQL 5.7.34)
 # Database: games
-# Generation Time: 2021-09-14 14:04:36 +0000
+# Generation Time: 2021-09-14 15:34:48 +0000
 # ************************************************************
 
 
@@ -15,7 +15,6 @@
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8 */;
-SET NAMES utf8mb4;
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
@@ -30,7 +29,7 @@ CREATE TABLE `pc-games` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(50) DEFAULT NULL,
   `thumbnail` varchar(200) DEFAULT NULL,
-  `shortDescription` varchar(1000) DEFAULT NULL,
+  `shortDescription` text,
   `gameUrl` varchar(200) DEFAULT NULL,
   `genre` varchar(20) DEFAULT NULL,
   `platform` varchar(200) DEFAULT NULL,
