@@ -1,28 +1,35 @@
 <?php
 
-require_once ('../Abstracts/GameEntityAbstract.php');
-require_once ('../Entities/PCGameEntityTest.php');
+require_once ('../../Abstracts/GameEntityAbstract.php');
+require_once ('../../Entities/PCGameEntity.php');
 
 use PHPUnit\Framework\TestCase;
+use GameListing\Entities\PCGameEntity;
+use GameListing\Abstracts\GameEntityAbstract;
 
 class PCGameEntityTest extends TestCase
 {
-    public function testGetTitle(): string
+    public function testGetTitleSuccess()
     {
-        $pcGameStub = $this->createMock(\GameListing\Abstracts\GameEntityAbstract::class);
+        $pcGameStub = $this->createMock(GameEntityAbstract::class);
         $pcGameStub->method('getTitle')->willReturn('jonny');
-        $game = new \GameListing\Entities\PCGameEntity('jonny', '', '');
-        $result = $game->getTitle();
-        $this->assertEquals($result, 'jonny');
+        $game = new PCGameEntity('jonny', '', '');
+        $this->assertEquals($game->getTitle(), 'jonny');
     }
 
-    public function testGetGenre(): string
-    {
-        return $this->genre;
-    }
+	public function testGetGenreSuccess()
+	{
+		$pcGameStub = $this->createMock(GameEntityAbstract::class);
+		$pcGameStub->method('getGenre')->willReturn('Sci-fi');
+		$game = new PCGameEntity('', '', 'Sci-fi');
+		$this->assertEquals($game->getGenre(), 'Sci-fi');
+	}
 
-    public function testGetThumbnail(): string
-    {
-        return $this->thumbnail;
-    }
+	public function testGetThumbnailSuccess()
+	{
+		$pcGameStub = $this->createMock(GameEntityAbstract::class);
+		$pcGameStub->method('getThumbnail')->willReturn('bloop');
+		$game = new PCGameEntity('', 'bloop', '');
+		$this->assertEquals($game->getThumbnail(), 'bloop');
+	}
 }
