@@ -1,9 +1,12 @@
 <?php
+echo "Getting data from API\n";
 
 $request = curl_init("https://www.freetogame.com/api/games?platform=pc");
 curl_setopt($request, CURLOPT_RETURNTRANSFER, 1);
 $response = curl_exec($request);
 $data = json_decode($response, true);
+
+echo "Connecting to database\n";
 
 $db = new PDO('mysql:host=127.0.0.1; dbname=games', 'root', 'password');
 $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
@@ -23,13 +26,17 @@ CREATE TABLE `pc-games` (
   `releaseDate` date DEFAULT NULL,
   `freetogameProfileUrl` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;');
 
+echo "Populating database\n";
 
+$query = $db->prepare(
+    'INSERT INTO `pc-games` (`title`, `thumbnail`, `shortDescription`, `gameUrl`, `genre`, `platform`, 
+                        `publisher`, `developer`, `releaseDate`, `freetogameProfileUrl`) 
+                        VALUES (:title, :thumbnail, :shortDescription, :gameUrl, :genre, :platform, :publisher, 
+                                :developer, :releaseDate, :freetogameProfileUrl);');
 
-$query = $db->prepare('INSERT INTO `pc-games` (`title`, `thumbnail`, `shortDescription`, `gameUrl`, `genre`, `platform`, `publisher`, `developer`, `releaseDate`, `freetogameProfileUrl`) VALUES (:title, :thumbnail, :shortDescription, :gameUrl, :genre, :platform, :publisher, :developer, :releaseDate, :freetogameProfileUrl);');
-
-foreach ($data as $game ) {
+foreach ($data as $game) {
     $query->bindParam(':title', $game['title']);
     $query->bindParam(':thumbnail', $game['thumbnail']);
     $query->bindParam(':shortDescription', $game['short_description']);
@@ -40,6 +47,7 @@ foreach ($data as $game ) {
     $query->bindParam(':developer', $game['developer']);
     $query->bindParam(':releaseDate', $game['release_date']);
     $query->bindParam(':freetogameProfileUrl', $game['freetogame_profile_url']);
-
     $query->execute();
 }
+
+echo "Complete\n";
