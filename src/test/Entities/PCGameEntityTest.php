@@ -9,9 +9,11 @@ class PCGameEntityTest extends TestCase
 {
     public function testGetTitle(): string
     {
-        $pcGameStub = $this->createMock(\GameListing\Entities\PCGameEntity::class);
-        $pcGameStub->method('getTitle')->willReturn()
-        return $this->title;
+        $pcGameStub = $this->createMock(\GameListing\Abstracts\GameEntityAbstract::class);
+        $pcGameStub->method('getTitle')->willReturn('jonny');
+        $game = new \GameListing\Entities\PCGameEntity('jonny', '', '');
+        $result = $game->getTitle();
+        $this->assertEquals($result, 'jonny');
     }
 
     public function testGetGenre(): string
