@@ -1,6 +1,9 @@
 # 2021-fightingMongooses-gameListing
 
-## Installing and Running Composer:
+This project utilises Docker. Visit the [Docker repo](https://hub.docker.com)
+to download and install.
+
+## Setting Up Autoloader:
 1. Run the command `composer` in the terminal. If no version information
 appears, visit [getcomposer.org](https://getcomposer.org/download/) and 
 follow instructions to download and install composer. 
