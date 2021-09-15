@@ -1,6 +1,6 @@
 # 2021-fightingMongooses-gameListing
 
-This project utilises Docker. Visit the [Docker repo](https://hub.docker.com)
+This project utilises Docker. Visit the [Docker repo](https://github.com/iO-Academy/docker-image)
 to download and install.
 
 ## Setting Up Autoloader:
@@ -16,7 +16,3 @@ successful you will see the vendor folder appear.
 1. Make an SQL database called *games*.
 2. Run the command `php getApiData.php` from the root project directory.
 3. Open Sequel Pro and confirm the database has been populated.
-
-
-
-
