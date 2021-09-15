@@ -11,22 +11,22 @@ echo "Connecting to database\n";
 $db = new PDO('mysql:host=127.0.0.1; dbname=games', 'root', 'password');
 $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 
-$db->query('DROP TABLE IF EXISTS `pc-games`;
-
-CREATE TABLE `pc-games` (
-`id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `title` varchar(50) DEFAULT NULL,
-  `thumbnail` varchar(200) DEFAULT NULL,
-  `shortDescription` varchar(1000) DEFAULT NULL,
-  `gameUrl` varchar(200) DEFAULT NULL,
-  `genre` varchar(20) DEFAULT NULL,
-  `platform` varchar(200) DEFAULT NULL,
-  `publisher` varchar(100) DEFAULT NULL,
-  `developer` varchar(100) DEFAULT NULL,
-  `releaseDate` date DEFAULT NULL,
-  `freetogameProfileUrl` varchar(200) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;');
+$db->query('
+	DROP TABLE IF EXISTS `pc-games`;
+	CREATE TABLE `pc-games` (
+	`id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+	  `title` varchar(50) DEFAULT NULL,
+	  `thumbnail` varchar(200) DEFAULT NULL,
+	  `shortDescription` varchar(1000) DEFAULT NULL,
+	  `gameUrl` varchar(200) DEFAULT NULL,
+	  `genre` varchar(20) DEFAULT NULL,
+	  `platform` varchar(200) DEFAULT NULL,
+	  `publisher` varchar(100) DEFAULT NULL,
+	  `developer` varchar(100) DEFAULT NULL,
+	  `releaseDate` date DEFAULT NULL,
+	  `freetogameProfileUrl` varchar(200) DEFAULT NULL,
+	  PRIMARY KEY (`id`)
+	) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;');
 
 echo "Populating database\n";
 
