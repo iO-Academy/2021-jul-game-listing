@@ -2,6 +2,7 @@
 namespace GameListing\Hydrators;
 
 use GameListing\Entities\PCGameEntity;
+use GameListing\Entities\DetailedPCGameEntity;
 
 class GamesHydrator
 {
@@ -12,12 +13,12 @@ class GamesHydrator
         return $query->fetchAll();
     }
 
-    public static function getGameById(\PDO $db, int $id)
+    public static function getGameById(\PDO $db, int $id): DetailedPCGameEntity
     {
         $query = $db->query('SELECT `id`, `title`, `genre`, `thumbnail`, `shortDescription`, `gameUrl`,
        `genre`, `platform`, `publisher`, `developer`, `releaseDate`, `freetogameProfileUrl`
         FROM `pc-games` WHERE `id` = ' . $id . ';');
-        $query->setFetchMode(\PDO::FETCH_CLASS, \DetailedPCGameEntity::class);
-        return $query->fetchAll()[0][1];
+        $query->setFetchMode(\PDO::FETCH_CLASS, DetailedPCGameEntity::class);
+        return $query->fetch();
     }
 }

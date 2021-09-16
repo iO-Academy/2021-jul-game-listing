@@ -8,7 +8,7 @@ $gameId = $_GET['id'];
 
 $db = new PDO('mysql:host=db;dbname=games', 'root', 'password');
 $game = GamesHydrator::getGameById($db, $gameId);
-print_r($game);
+
 ?>
 
 <!DOCTYPE html>
@@ -23,21 +23,21 @@ print_r($game);
     <div class="detailsCard">
         <div class="titleWrapper">
             <h2><?php echo $game->getTitle(); ?></h2>
-            <h3></h3>
+            <h3><?php echo $game->getGenre(); ?></h3>
         </div>
         <div>
-            <img src="">
+            <img src="<?php echo $game->getThumbnail(); ?>">
             <div>
                 <ul>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
+                    <li><?php echo $game->getPlatform(); ?></li>
+                    <li><?php echo $game->getDeveloper(); ?></li>
+                    <li><?php echo $game->getPublisher(); ?></li>
+                    <li><?php echo $game->getReleaseDate(); ?></li>
                 </ul>
-                <button>Play Game</button>
+                <a href="<?php echo $game->getGameUrl(); ?>">Play Game</a>
             </div>
         </div>
-        <p></p>
+        <p><?php echo $game->getShortDescription(); ?></p>
     </div>
 </body>
 </html>

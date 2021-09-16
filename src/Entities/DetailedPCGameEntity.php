@@ -1,4 +1,5 @@
 <?php
+namespace GameListing\Entities;
 
 use GameListing\Abstracts\GameEntityAbstract;
 
@@ -8,7 +9,7 @@ class DetailedPCGameEntity extends GameEntityAbstract
     private string $platform = 'PC (Windows)';
     private string $publisher;
     private string $developer;
-    private Date $releaseDate;
+    private string $releaseDate;
     private string $gameUrl;
 
     public function getShortDescription(): string
@@ -31,7 +32,7 @@ class DetailedPCGameEntity extends GameEntityAbstract
         return $this->developer;
     }
 
-    public function getReleaseDate(): Date
+    public function getReleaseDate(): string
     {
         return $this->releaseDate;
     }
