@@ -6,7 +6,7 @@ class GameViewHelper
 {
   public static function createGameCard(GameEntityAbstract $game): string
   {
-      return '<div><img src="' . $game->getThumbnail() . '" alt="Image of ' . $game->getTitle() . '"><h2>' .
+      return '<div class="cardWrapper"><img src="' . $game->getThumbnail() . '" alt="Image of ' . $game->getTitle() . '"><h2>' .
           $game->getTitle() . '</h2><h3>' . $game->getGenre() . '</h3></div>';
   }
 }
