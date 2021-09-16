@@ -38,8 +38,10 @@ h1 {
 
 .detailsCard {
     margin: 20px auto;
-    background-color: #fff;
     width: 600px;
+    background-color: #a9a9a9;
+    font-family: orbitron, sans-serif;
+    border-radius: 5px;
 }
 
 .titleWrapper {
@@ -61,7 +63,6 @@ h1 {
     display: flex;
     flex-flow: column nowrap;
     align-items: flex-start;
-
 }
 
 .gameDetails p {
