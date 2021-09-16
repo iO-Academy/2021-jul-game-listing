@@ -6,6 +6,7 @@ use GameListing\Hydrators\GamesHydrator;
 use GameListing\ViewHelpers\GameViewHelper;
 $db = new PDO('mysql:host=db;dbname=games', 'root', 'password');
 $games = GamesHydrator::getAllGames($db);
+$gamesByQuery = GamesHydrator::getGamesByTitle($db, $_GET['query']);
 
 ?>
 
@@ -28,8 +29,14 @@ $games = GamesHydrator::getAllGames($db);
         <h1>Mongoose Game Listing</h1>
         <div class="cardContainer">
             <?php
-                foreach($games as $game) {
-                    echo GameViewHelper::createGameCard($game);
+                if (empty($_GET['query'])) {
+                    foreach($games as $game) {
+                        echo GameViewHelper::createGameCard($game);
+                    }
+                } else {
+                    foreach($gamesByQuery as $game) {
+                        echo GameViewHelper::createGameCard($game);
+                    }
                 }
             ?>
         </div>
