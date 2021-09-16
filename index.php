@@ -12,17 +12,14 @@ $games = GamesHydrator::getAllGames($db);
 <!DOCTYPE html>
 <html lang="eng">
 <head>
-    <title>Game Listing</title>
+    <title>Mongoose Game Listing</title>
     <link rel="stylesheet" href="https://use.typekit.net/mpi6fsb.css">
     <link rel="stylesheet" href="normalize.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <a href="#"><img src="mongoose-logo.png" class="logo"></a>
-    </header>
     <main id="homePage">
-        <h1>Game Listing</h1>
+        <h1>Mongoose Game Listing</h1>
         <div class="cardContainer">
             <?php
                 foreach($games as $game) {
