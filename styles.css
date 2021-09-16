@@ -1,0 +1,80 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+html {
+    background-color: #333;
+}
+
+h1 {
+    font-family: uniwars, sans-serif;
+    font-size: 3rem;
+    color: #fff;
+    text-align: center;
+    padding: 100px 0 20px 0;
+}
+
+.cardContainer {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 90vw;
+    margin: 50px auto;
+}
+
+.cardWrapper {
+    margin: 10px;
+    width: 350px;
+    height: 370px;
+    overflow: hidden;
+    background-color: #a9a9a9;
+    border-radius: 10px;
+    position: relative;
+}
+
+h2, h3 {
+    padding: 15px;
+}
+
+h2 {
+    text-transform: uppercase;
+    font-family: orbitron, sans-serif;
+}
+
+h3 {
+    position: absolute;
+    top: 320px;
+}
+nav {
+    padding: 30px;
+    position: fixed;
+    top: 0;
+    background-color: #a9a9a9;
+    width: 100%;
+    z-index: 99;
+}
+
+form {
+    display: flex;
+    justify-content: flex-end;
+}
+
+form button {
+    margin-left: 15px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+}
+
+form button:hover {
+    cursor: pointer;
+}
+
+form input {
+    padding: 5px 10px;
+    border: none;
+}
