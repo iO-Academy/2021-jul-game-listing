@@ -8,7 +8,7 @@ $valid_ids_query = $db->query('SELECT COUNT(id) FROM `pc-games`;');
 $valid_ids = $valid_ids_query->fetch()[0];
 $gameId = $_GET['id'];
 
-if (!isset($_GET['id']) || $_GET['id'] < 0 | $_GET['id'] > $valid_ids){
+if (!isset($_GET['id']) || $_GET['id'] < 1 || $_GET['id'] > $valid_ids){
     header('Location: index.php');
 } else {
     $game = GamesHydrator::getGameById($db, $gameId);
