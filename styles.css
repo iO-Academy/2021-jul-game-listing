@@ -6,7 +6,7 @@
 }
 
 html {
-    background-color: #000;
+    background-color: #333;
 }
 
 h1 {
@@ -53,7 +53,7 @@ nav {
     padding: 30px;
     position: fixed;
     top: 0;
-    background-color: #333;
+    background-color: #a9a9a9;
     width: 100%;
     z-index: 99;
 }
@@ -66,4 +66,15 @@ form {
 form button {
     margin-left: 15px;
     padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+}
+
+form button:hover {
+    cursor: pointer;
+}
+
+form input {
+    padding: 5px 10px;
+    border: none;
 }
