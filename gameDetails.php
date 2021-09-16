@@ -7,8 +7,8 @@ use GameListing\Hydrators\GamesHydrator;
 $gameId = $_GET['id'];
 
 $db = new PDO('mysql:host=db;dbname=games', 'root', 'password');
-$games = GamesHydrator::getGameById($db, $gameId);
-
+$game = GamesHydrator::getGameById($db, $gameId);
+print_r($game);
 ?>
 
 <!DOCTYPE html>
@@ -22,7 +22,7 @@ $games = GamesHydrator::getGameById($db, $gameId);
 <body>
     <div class="detailsCard">
         <div class="titleWrapper">
-            <h2></h2>
+            <h2><?php echo $game->getTitle(); ?></h2>
             <h3></h3>
         </div>
         <div>

@@ -18,6 +18,6 @@ class GamesHydrator
        `genre`, `platform`, `publisher`, `developer`, `releaseDate`, `freetogameProfileUrl`
         FROM `pc-games` WHERE `id` = ' . $id . ';');
         $query->setFetchMode(\PDO::FETCH_CLASS, \DetailedPCGameEntity::class);
-        return $query->fetch();
+        return $query->fetchAll()[0][1];
     }
 }
