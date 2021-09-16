@@ -36,6 +36,54 @@ h1 {
     position: relative;
 }
 
+.detailsCard {
+    margin: 20px auto;
+    background-color: #fff;
+    width: 600px;
+}
+
+.titleWrapper {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+.imageDetailsWrapper {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-around;
+    margin: 10px 0;
+}
+
+.gameDetails {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+
+}
+
+.gameDetails p {
+    margin-bottom: 5px;
+}
+
+.playGameButton {
+    margin: 5px 0;
+    padding: 5px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+}
+
+.gameDescription {
+    padding: 5px;
+    margin: 10px;
+}
+
+
+
 h2, h3 {
     padding: 15px;
 }
@@ -45,7 +93,7 @@ h2 {
     font-family: orbitron, sans-serif;
 }
 
-h3 {
+a h3 {
     position: absolute;
     top: 320px;
 }

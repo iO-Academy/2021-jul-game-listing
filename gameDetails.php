@@ -25,19 +25,21 @@ $game = GamesHydrator::getGameById($db, $gameId);
             <h2><?php echo $game->getTitle(); ?></h2>
             <h3><?php echo $game->getGenre(); ?></h3>
         </div>
-        <div>
+        <div class="imageDetailsWrapper">
             <img src="<?php echo $game->getThumbnail(); ?>">
-            <div>
-                <ul>
-                    <li><?php echo $game->getPlatform(); ?></li>
-                    <li><?php echo $game->getDeveloper(); ?></li>
-                    <li><?php echo $game->getPublisher(); ?></li>
-                    <li><?php echo $game->getReleaseDate(); ?></li>
-                </ul>
-                <a href="<?php echo $game->getGameUrl(); ?>">Play Game</a>
+            <div class="gameDetails">
+                <h4>Platform:</h4>
+                <p><?php echo $game->getPlatform(); ?></p>
+                <h4>Developer:</h4>
+                <p><?php echo $game->getDeveloper(); ?></p>
+                <h4>Publisher:</h4>
+                <p><?php echo $game->getPublisher(); ?></p>
+                <h4>Release Date:</h4>
+                <p><?php echo $game->getReleaseDate(); ?></p>
+                <a class="playGameButton" href="<?php echo $game->getGameUrl(); ?>" target="_blank">Play Game</a>
             </div>
         </div>
-        <p><?php echo $game->getShortDescription(); ?></p>
+        <p class="gameDescription"><?php echo $game->getShortDescription(); ?></p>
     </div>
 </body>
 </html>
