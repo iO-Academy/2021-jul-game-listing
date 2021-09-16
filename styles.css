@@ -58,23 +58,23 @@ nav {
     z-index: 99;
 }
 
-form {
+.searchContainer, form {
     display: flex;
     justify-content: flex-end;
 }
 
-form button {
+.searchContainer button {
     margin-left: 15px;
     padding: 10px 20px;
     border-radius: 5px;
     border: none;
 }
 
-form button:hover {
+.searchContainer button:hover {
     cursor: pointer;
 }
 
-form input {
+.searchContainer input {
     padding: 5px 10px;
     border: none;
 }
