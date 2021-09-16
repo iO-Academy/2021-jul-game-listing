@@ -16,7 +16,8 @@ class GameViewHelperTest extends TestCase
 		$gameStub->method('getTitle')->willReturn('Title');
 		$gameStub->method('getThumbnail')->willReturn('Thumbnail');
 		$gameStub->method('getGenre')->willReturn('Genre');
-		$expectedOutput = '<div class="cardWrapper"><img src="Thumbnail" alt="Image of Title"><h2>Title</h2><h3>Genre</h3></div>';
+        $gameStub->method('getId')->willReturn(1);
+		$expectedOutput = '<a class="cardWrapper" href="gameDetails.php?id=1"><img src="Thumbnail" alt="Image of Title"><h2>Title</h2><h3>Genre</h3></a>';
 		$actualOutput = GameViewHelper::createGameCard($gameStub);
 		$this->assertEquals($expectedOutput, $actualOutput);
 	}
