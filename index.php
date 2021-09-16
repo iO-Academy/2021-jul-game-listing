@@ -22,23 +22,28 @@ if(isset($_GET['query'])){
 </head>
 <body>
     <nav>
-        <form>
-            <input type="search" name="query" placeholder="search by title" aria-label="search by title" role="search">
-            <button type="submit">Search</button>
-        </form>
+        <div class="searchContainer">
+            <form>
+                <input type="search" name="query" placeholder="search by title" aria-label="search by title" role="search" value="<?php if(isset($_GET['query'])){echo $_GET['query'];} ?>">
+                <button type="submit">Search</button>
+            </form>
+            <a href="index.php"><button>Clear</button></a>
+        </div>
+
     </nav>
     <main id="homePage">
         <h1>Mongoose Game Listing</h1>
         <div class="cardContainer">
             <?php
-            foreach($games as $game) {
-                echo GameViewHelper::createGameCard($game);
-            }
             if (isset($_GET['query']) && !empty($_GET['query'])) {
-                foreach($gamesByQuery as $game) {
+                foreach ($gamesByQuery as $game) {
                     echo GameViewHelper::createGameCard($game);
                 }
-            }
+            } else {
+                    foreach($games as $game) {
+                        echo GameViewHelper::createGameCard($game);
+                    }
+                }
             ?>
         </div>
     </main>

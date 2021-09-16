@@ -14,8 +14,8 @@ class GamesHydrator
     public static function getGamesByTitle(\PDO $db, string $title): array
     {
         $userInput = trim($title);
-        $regexPattern = '.*' . $userInput . '.*';
-        $query = $db->query('SELECT `title`, `genre`, `thumbnail` FROM `pc-games` WHERE `title` REGEXP ' . $title . ';');
+        $safeUserInput = preg_replace('/[^A-Za-z0-9\-]/', '', $userInput);
+        $query = $db->query("SELECT `title`, `genre`, `thumbnail` FROM `pc-games` WHERE `title` REGEXP '$safeUserInput';");
         $query->setFetchMode(\PDO::FETCH_CLASS, PCGameEntity::class);
         return $query->fetchAll();
     }
