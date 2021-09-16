@@ -3,7 +3,6 @@
 require_once ('../../Abstracts/GameEntityAbstract.php');
 require_once ('../../ViewHelpers/GameViewHelper.php');
 
-
 use PHPUnit\Framework\TestCase;
 use GameListing\Abstracts\GameEntityAbstract;
 use GameListing\ViewHelpers\GameViewHelper;
