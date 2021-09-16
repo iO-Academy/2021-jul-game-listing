@@ -1,12 +1,10 @@
 <?php
 
 require 'vendor/autoload.php';
-
 use GameListing\Hydrators\GamesHydrator;
 
-$gameId = $_GET['id'];
-
 $db = new PDO('mysql:host=db;dbname=games', 'root', 'password');
+$gameId = $_GET['id'];
 $game = GamesHydrator::getGameById($db, $gameId);
 
 ?>
