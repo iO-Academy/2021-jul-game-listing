@@ -18,6 +18,12 @@ $games = GamesHydrator::getAllGames($db);
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <nav>
+        <form>
+            <input type="search" name="query" placeholder="search by title" aria-label="search by title" role="search">
+            <button type="submit">Search</button>
+        </form>
+    </nav>
     <main id="homePage">
         <h1>Mongoose Game Listing</h1>
         <div class="cardContainer">
