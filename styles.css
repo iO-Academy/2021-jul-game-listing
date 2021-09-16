@@ -49,3 +49,8 @@ h3 {
     position: absolute;
     top: 320px;
 }
+
+a {
+    text-decoration: none;
+    color: #000000;
+}
