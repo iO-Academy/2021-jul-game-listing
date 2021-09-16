@@ -19,7 +19,7 @@ $games = GamesHydrator::getAllGames($db);
 </head>
 <body>
     <header>
-        <a href="#"><img src=""></a>
+        <a href="#"><img src="mongoose-logo.png" class="logo"></a>
     </header>
     <main id="homePage">
         <h1>Game Listing</h1>
