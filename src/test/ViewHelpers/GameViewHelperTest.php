@@ -8,16 +8,22 @@ use PHPUnit\Framework\TestCase;
 use GameListing\Abstracts\GameEntityAbstract;
 use GameListing\ViewHelpers\GameViewHelper;
 
-class ViewHelperTest extends TestCase
+class GameViewHelperTest extends TestCase
 {
-	public function testViewHelperSuccess()
+	public function testGameViewHelperSuccess()
 	{
 		$gameStub = $this->createMock(GameEntityAbstract::class);
-		$gameStub->title = 'Title';
-		$gameStub->thumbnail = 'Thumbnail';
-		$gameStub->genre = 'Genre';
+		$gameStub->method('getTitle')->willReturn('Title');
+		$gameStub->method('getThumbnail')->willReturn('Thumbnail');
+		$gameStub->method('getGenre')->willReturn('Genre');
 		$expectedOutput = '<div><img src="Thumbnail" alt="Image of Title"><h2>Title</h2><h3>Genre</h3></div>';
 		$actualOutput = GameViewHelper::createGameCard($gameStub);
 		$this->assertEquals($expectedOutput, $actualOutput);
+	}
+
+	public function testGameViewHelperMalformed()
+	{
+		$this->expectException(TypeError::class);
+		GameViewHelper::createGameCard(22);
 	}
 }
