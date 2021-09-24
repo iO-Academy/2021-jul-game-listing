@@ -17,7 +17,7 @@ class GamesHydrator
     {
         $query = $db->query('SELECT `id`, `title`, `genre`, `thumbnail`, `shortDescription`, `gameUrl`,
        `genre`, `platform`, `publisher`, `developer`, `releaseDate`, `freetogameProfileUrl`
-        FROM `pc-games` WHERE `id` = ' . $id . ';');
+        FROM `pc-games` WHERE `id` = :id;');
         $query->bindParam(':id', $id);
         $query->setFetchMode(\PDO::FETCH_CLASS, DetailedPCGameEntity::class);
         return $query->fetch();
