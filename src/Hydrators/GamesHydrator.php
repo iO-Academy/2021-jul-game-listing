@@ -15,11 +15,12 @@ class GamesHydrator
 
     public static function getGameById(\PDO $db, int $id): DetailedPCGameEntity
     {
-        $query = $db->query('SELECT `id`, `title`, `genre`, `thumbnail`, `shortDescription`, `gameUrl`,
+        $query = $db->prepare('SELECT `id`, `title`, `genre`, `thumbnail`, `shortDescription`, `gameUrl`,
        `genre`, `platform`, `publisher`, `developer`, `releaseDate`, `freetogameProfileUrl`
         FROM `pc-games` WHERE `id` = :id;');
         $query->bindParam(':id', $id);
         $query->setFetchMode(\PDO::FETCH_CLASS, DetailedPCGameEntity::class);
+        $query->execute();
         return $query->fetch();
     }
 }
