@@ -6,7 +6,7 @@
 }
 
 html {
-    background-color: #000;
+    background-color: #333;
     scroll-behavior: smooth;
 }
 
@@ -15,7 +15,7 @@ h1 {
     font-size: 3rem;
     color: #fff;
     text-align: center;
-    padding: 40px 0 20px 0;
+    padding: 100px 0 20px 0;
 }
 
 .cardContainer {
@@ -96,6 +96,36 @@ h2 {
 a h3 {
     position: absolute;
     top: 320px;
+}
+
+nav {
+    padding: 30px;
+    position: fixed;
+    top: 0;
+    background-color: #a9a9a9;
+    width: 100%;
+    z-index: 99;
+}
+
+.searchContainer, form {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.searchContainer button {
+    margin-left: 15px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+}
+
+.searchContainer button:hover {
+    cursor: pointer;
+}
+
+.searchContainer input {
+    padding: 5px 10px;
+    border: none;
 }
 
 a {
