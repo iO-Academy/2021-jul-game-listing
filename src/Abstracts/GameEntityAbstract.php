@@ -6,6 +6,7 @@ abstract class GameEntityAbstract
     protected string $title;
     protected string $genre;
     protected string $thumbnail;
+    protected int $id;
 
     public function getTitle(): string
     {
@@ -20,5 +21,10 @@ abstract class GameEntityAbstract
     public function getThumbnail(): string
     {
         return $this->thumbnail;
+    }
+
+    public function getId(): int
+    {
+        return $this->id;
     }
 }
