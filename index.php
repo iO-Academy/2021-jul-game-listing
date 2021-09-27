@@ -6,7 +6,7 @@ use GameListing\Hydrators\GamesHydrator;
 use GameListing\ViewHelpers\GameViewHelper;
 $db = new PDO('mysql:host=db;dbname=games', 'root', 'password');
 
-if(isset($_GET['query']) & $_GET['query']!== ''){
+if(isset($_GET['query']) && $_GET['query']!== ''){
     $all_games = GamesHydrator::getGamesByTitle($db, $_GET['query']);
 } else {
 	$all_games = GamesHydrator::getAllGames($db);
